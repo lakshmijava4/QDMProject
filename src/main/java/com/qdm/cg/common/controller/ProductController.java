@@ -31,7 +31,7 @@ public class ProductController {
 		return productRepositry.findAll();
 	}
 
-	@GetMapping("/product/{id}")
+	@GetMapping("/product/get/{id}")
 	public ResponseEntity<Product> getRecommendation(@PathVariable Integer id)
 			throws UserNotFoundException {
 		Product product = productRepositry.findById(id)
@@ -45,7 +45,7 @@ public class ProductController {
 		return userRepositry.findAll();
 	}
 	
-	@GetMapping("/userActivityStatus/{activityId}")
+	@GetMapping("/userActivityStatus/get/{activityId}")
 	public User getActivityStatus(@PathVariable Integer activityId) {
 		Optional<User> user = userRepositry.findById(activityId);
 		if (!user.isPresent()) {
@@ -55,7 +55,7 @@ public class ProductController {
 	}
 
 	// GetListMaritalStatus
-	@GetMapping("/maritalStatus/{userId} ")
+	@GetMapping("/maritalStatus/get/{userId} ")
 	public List<User> getMaritalStatus(@PathVariable String status) {
 		List<User> userMaritalList = new LinkedList<User>();
 		for (Iterator<User> iterator = userMaritalList.iterator(); iterator.hasNext();) {
@@ -74,7 +74,7 @@ public class ProductController {
 	}
 
 	// GetList Emotional Status
-	@GetMapping("/emotionalStatus/{userId}")
+	@GetMapping("/emotionalStatus/get{userId}")
 	public User getEmotionalStatus(Integer userId) {
 		return userRepositry.getOne(userId);
 
